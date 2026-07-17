@@ -1,5 +1,10 @@
+
+
+import Styles from  "./Bye.module.css";
+
+
 function Bye(){
-    return <h2>Bye component </h2>
+    return <h2 className={Styles.test}>Bye component </h2>
 }
 
-export default Bye
+export default Bye;
