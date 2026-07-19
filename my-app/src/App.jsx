@@ -1,18 +1,14 @@
 
-import { useState } from "react";
-
 import Hello from "./Hello"
+import Bye from "./Bye"
 
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
+
     <>
-    
-    <Hello/>
-    
-         
+    <Hello />
+    <Bye/>
     </>
   )
 }
