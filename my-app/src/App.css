@@ -1,19 +1,6 @@
-.container {
-    text-align: center;
-    margin-top: 100px;
-
+.visible{
+    display: block;
 }
-
-button {
-    background-color: royalblue;
-    color: aliceblue;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-button:hover {
-    background-color: aquamarine;
+.unvisible{
+    display: none;
 }

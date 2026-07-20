@@ -2,15 +2,20 @@
 import Hello from "./Hello"
 import Bye from "./Bye"
 
-
 function App() {
-  return (
 
-    <>
-    <Hello />
-    <Bye/>
-    </>
-  )
+  const isLoggedIn  =  true;
+
+  if(isLoggedIn){
+
+ 
+
+  return <Hello />
+    }else{
+      return <Bye/>
+    }
+
+
 }
 
 export default App

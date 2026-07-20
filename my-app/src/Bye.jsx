@@ -1,8 +1,4 @@
 
-
-
-
-
 function Bye(){
     const users = [
     { firstName:"Yasmeen", lastName: "M", age:22 },
