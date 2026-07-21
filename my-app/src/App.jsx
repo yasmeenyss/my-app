@@ -1,20 +1,16 @@
 
 import Hello from "./Hello"
-import Bye from "./Bye"
+
 
 function App() {
 
-  const isLoggedIn  =  true;
-
-  if(isLoggedIn){
-
- 
-
-  return <Hello />
-    }else{
-      return <Bye/>
-    }
-
+  return (
+    <>
+    <Hello name="Yasmeen" age={22} city="karnataka"/>
+    <Hello name="jasmine" age={25} city="Mumbai"/>
+     
+    </>
+  )
 
 }
 
