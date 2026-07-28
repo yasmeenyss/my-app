@@ -1,9 +1,16 @@
-function Hello(props){
+function Hello({name= "Guest", age= 18, city= "unknown", hobbies = []}){
+
     return  (
       <>
-      <h2>Hello, {props.name}</h2>
-      <p>Age : {props.age}</p>
-      <p>city : {props.city}</p>
+      <h2>Hello, {name}</h2>
+      <p>Age : {age}</p>
+      <p>city : {city}</p>
+      <ul>
+        {hobbies.map((hobby,index)=>(
+           <li  key={index}>{hobby}</li>
+        
+        ))}
+      </ul>
       </>
     )
 }
