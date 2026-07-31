@@ -1,11 +1,18 @@
 // import SimpleForm from "./SimpleForm";
-import MultiInputForm from './MultiInputForm';
+// import MultiInputForm from './MultiInputForm';
+// import AdvancedForms from './AdvancedForms';
+
+// import UncontrolledForm from './UncontrolledForm';
+// import UncontrolledForm from './BasicValidationForm';
+import BasicValidationForm from './BasicValidation';
+
 
 function App() {
   return (
     <>
-      <MultiInputForm/>
-    </>
+      
+     <BasicValidationForm />
+     </>
   );
 }
 
