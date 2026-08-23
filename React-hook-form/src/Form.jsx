@@ -1,69 +1,101 @@
-import { DevTool } from '@hookform/devtools';
-import { useForm} from "react-hook-form"
+
+import { useForm } from "react-hook-form";
+import { DevTool } from "@hookform/devtools";
 
 function Form() {
-   const {
-  register,
-  handleSubmit,
-  control,
-  formState: { errors }
-} = useForm();
+  const { register,handleSubmit,control,formState, } = useForm({
+    defaultValues: {
+      name: "yasmeen",
+      email: "",
+      age: 18,
+      social: {
+        facebook: "",
+        twitter: ""
+      }
+    }
+  });
 
-     const onSubmit = (data) => {
-       console.log("DATA:", data);
+  const { errors } = formState;
+
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
-    console.log("ERRORS:", errors);
+  console.log("ERRORS:", errors);
 
+  return (
+    <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
 
-    return (
-        <div>
+        {/* NAME */}
+        <label htmlFor="name">Name</label>
 
-       <form onSubmit={handleSubmit(onSubmit)}>
-
-        <label >Name</label>
-
-        <input 
-        type="text"
-         id="name" 
-         {...register("name", {
+        <input
+          type="text"
+          id="name"
+          {...register("name", {
             required: "Name is required",
 
-        })}
+            validate: (value) => {
+              if (value === "admin") {
+                return "Admin name is not allowed";
+              }
+
+              return true;
+            },
+          })}
+        />
+        
+
+        <p className="error">
+          {errors.name?.message}
+          </p>
+
+        <br />
+        <br />
+
+        {/* EMAIL */}
+        <label htmlFor="email">Email</label>
+
+        <input
+          type="text"
+          id="email"
+          {...register("email", {
+            required: "Email is required",
+          })}
         />
 
-        {errors.name && (
-  <div>
-    <p>Type: {errors.name.type}</p>
-    <p>Message: {errors.name.message}</p>
-  </div>
-)}
-        <br/><br/>
+        <p className="error">
+          {errors.email?.message}
+          </p>
+
+        <br />
+        <br />
 
        
-        <label htmlFor='email'>Email</label>
-        <input
-         type='text'
-          id='email' 
-          {...register("email")}
-          />
+       {/* AGE */}
+<label htmlFor="age">Age</label>
 
-        <br/><br/>
+<input
+  type="number"
+  id="age"
+  {...register("age", {
+    required: "Age is required",
+  })}
+/>
+        <p className="error">
+          {errors.age?.message}
+          </p>
 
-        <label htmlFor='age'>Age</label>
-        <input
-         type='text' id='age'
-           {...register("age")}
-           />
-        <br/><br/>
-        <button type='submit'>Submit</button>
+        <br />
+        <br />
 
-    </form>
+        <button type="submit">Submit</button>
+      </form>
 
-     <DevTool control={control} placement="top-left" />
-
+      <DevTool control={control} placement="top-left" />
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;
