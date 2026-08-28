@@ -1,5 +1,7 @@
 import Select from "react-select";
-import { SingleValue } from "react-select/animated";
+import CreatableSelect from "react-select/creatable";
+import AsyncSelect from "react-select/async";
+import { useState } from 'react';
 
 
 function App() {
@@ -35,16 +37,38 @@ const customStyles ={
 
   return (
     <div style={{ width: "300px"}}>
-      <Select 
+      <CreatableSelect
       options={options}  
+       onChange={(selected) => console.log(selected)}
+       isMulti
       placeholder="Select your fruit"
         isClearable
         // isDisabled={false}
-        onChange={(selected) => console.log(selected)}
-        defaultValue={options[3]}
-        styles={customStyles}
+       
+        // defaultValue={options[3]}
+        // styles={customStyles}
       />
+      <br/>
+
+      <AsyncSelect 
+      loadOptions={(input) => 
+        fetch(`https://jsonplaceholder.typicode.com/users?username=${input}`)
+        .then((res) => res.json())
+        .then((data) =>
+           data.map((user) => ({
+
+           
+        value: user.id,
+         label: user.name,
+          })),
+
+          )
+
+     }
+      />
+
     </div>
+    
   );
 }
 
