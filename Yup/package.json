@@ -1,5 +1,5 @@
 {
-  "name": "react-crud",
+  "name": "yup",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,13 +11,9 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^5.9.1",
-    "primeflex": "^4.0.0",
-    "primeicons": "^8.0.0",
-    "primereact": "^10.9.7",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-hook-form": "^7.86.0",
-    "react-router-dom": "^7.18.3",
+    "react-hook-form": "^7.87.0",
     "yup": "^1.7.1"
   },
   "devDependencies": {

@@ -1,23 +1,63 @@
-import { useEffect, useState } from "react"
-import axios from "../api/axios"
+import { useEffect, useState } from "react";
 
+import api from "../api/axios";
 
+import { DataTable } from "primereact/datatable";
+import { Column } from "primereact/column";
 
+export default function UserList() {
+const [users, setUsers] = useState([]);
 
-export default function UserList(){
-    const [ Users, setUsers] = useState([])
+const fetchUsers = async () => {
+try {
+const res = await api.get("/users");
 
-    const fetchUsers = async () => {
-        const res = await api.get("/users")
-        console.log(res)
-        setUsers(res.data)
-    }
+  console.log("Users:", res.data);
 
-    useEffect(() => {
-        fetchUsers();
+  setUsers(res.data);
+} catch (error) {
+  console.log("Error:", error);
+}
 
-    },[])
+};
 
-    return <h1>Users CRUD</h1>
+useEffect(() => {
+fetchUsers();
+}, []);
 
+return (
+<div>
+<h1>Users CRUD</h1>
+
+  <DataTable
+    value={users}
+    showGridlines
+    stripedRows
+    paginator
+    rows={5}
+    size="small"
+  >
+    <Column
+      header="Name"
+      body={(rowData) => rowData.name}
+    />
+
+    <Column
+      field="username"
+      header="UserName"
+    />
+
+    <Column
+      field="email"
+      header="Email"
+    />
+
+    <Column
+      field="age"
+      header="Age"
+    />
+  </DataTable>
+</div>
+
+);
 }

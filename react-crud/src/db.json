@@ -1,28 +1,25 @@
 {
-
-    "users": [
-        {
-            "id": 1,
-            "username": "salman khan",
-            "email": "salman@gmail.com",
-            "age": "22"
-        },
-
-         {
-            "id": 2,
-            "username": "yasmeen mk",
-            "email": "yasmeen@gmail.com",
-            "age": "32"
-        },
-
-         {
-            "id": 3,
-            "username": "nancy abrhain",
-            "email": "nancy@gmail.com",
-            "age": "62"
-        }
-
-
-
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "salman khan",
+      "username": "salman khan",
+      "email": "salman@gmail.com",
+      "age": "22"
+    },
+    {
+      "id": 2,
+      "name": "yasmeen mk",
+      "username": "yasmeen mk",
+      "email": "yasmeen@gmail.com",
+      "age": "32"
+    },
+    {
+      "id": 3,
+      "name": "nancy",
+      "username": "nancy abrhain",
+      "email": "nancy@gmail.com",
+      "age": "62"
+    }
+  ]
 }
