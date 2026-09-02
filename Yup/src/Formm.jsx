@@ -1,3 +1,4 @@
+
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schema";
@@ -12,12 +13,13 @@ function Formm() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    console.log("Form Data:", data);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      
+
+     
       <input
         type="text"
         placeholder="Name"
@@ -25,6 +27,7 @@ function Formm() {
       />
       <p className="error">{errors.name?.message}</p>
 
+     
       <input
         type="email"
         placeholder="Email"
@@ -32,21 +35,31 @@ function Formm() {
       />
       <p className="error">{errors.email?.message}</p>
 
+     
+      <input
+        type="password"
+        placeholder="Password"
+        {...register("password")}
+      />
+      <p className="error">{errors.password?.message}</p>
+
+      
       <input
         type="password"
         placeholder="Confirm Password"
-        {...register("Confirmpassword")}
+        {...register("confirmPassword")}
       />
       <p className="error">{errors.confirmPassword?.message}</p>
 
-       <input
-        type="age"
+      
+      <input
+        type="number"
         placeholder="Age"
         {...register("age")}
       />
       <p className="error">{errors.age?.message}</p>
 
-
+     
       <button type="submit">Register</button>
 
     </form>
@@ -54,3 +67,4 @@ function Formm() {
 }
 
 export default Formm;
+
